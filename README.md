@@ -9,6 +9,8 @@
 - First deployment succeeded, no ModuleNotFoundError
 
 ## Task 2.3 - Test it like a user would
+<img width="1896" height="873" alt="image" src="https://github.com/user-attachments/assets/93dccf7d-0aa1-4318-b91f-dc259680e103" />
+
 
 ### Screenshots
 #### One Customer Test
