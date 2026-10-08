@@ -16,7 +16,8 @@ Default inputs: Tenure 4, Month-to-month, Fiber optic -> Result 89% HIGH, Contac
 
 
 #### Batch Scoring Test - Success
-![batch success](batch_success.png)
+<img width="1919" height="1013" alt="image" src="https://github.com/user-attachments/assets/f82ee815-47b1-4f8d-b729-1e3ac7f20b25" />
+
 Uploaded sample file -> 31 of 50 customers above threshold, table shown
 
 #### Batch Scoring Test - Broken CSV
