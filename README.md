@@ -1,22 +1,39 @@
 # Churn Risk Advisor
 
-Live App: https://churn-risk-advisor-5p9ao2d7dkfhdeklwmovnj.streamlit.app
+**Live App:** https://churn-risk-advisor-5p9ao2d7dkfhdeklwmovnj.streamlit.app
 
-This app predicts churn risk (89% - HIGH etc) and shows what would change the risk.
+## Lab 4 - Task 3.3 Deployment
+- Main file: app.py
+- Python: 3.11
+- Public URL works in Incognito: YES
+- First deployment succeeded, no ModuleNotFoundError
 
-## Deployment - Lab 4 Task 3.2 & 3.3
+## Task 2.3 - Test it like a user would
 
-- **Repository:** fatima-akhtar09/churn-risk-advisor
-- **Branch:** main
-- **Main file:** app.py
-- **Python Version:** 3.11 (Streamlit Cloud)
-- **Public URL:** https://churn-risk-advisor-5p9ao2d7dkfhdeklwmovnj.streamlit.app
+### Screenshots
+#### One Customer Test
+![one customer](one_customer.png)
+Default inputs: Tenure 4, Month-to-month, Fiber optic -> Result 89% HIGH, Contact now
 
-**Deployment Result:** First deployment succeeded on first try. No ModuleNotFoundError, no FileNotFoundError.
+#### Batch Scoring Test - Success
+![batch success](batch_success.png)
+Uploaded sample file -> 31 of 50 customers above threshold, table shown
 
-**Verification:** Tested in Incognito window - app loads for strangers and scoring works.
+#### Batch Scoring Test - Broken CSV
+![batch error](batch_error.png)
+Uploaded missing_col.csv -> Shows "Missing columns: ['tenure']" without crashing
 
-## Files
-- app.py
-- churn_model.joblib
-- requirements.txt
+### All Tests from Slide 9
+1. Default -> HIGH band PASSED
+2. Internet=No -> Add-on disappears PASSED
+3. Tenure 60 + 2-year -> LOW band PASSED
+4. Threshold slider -> Band changes, probability same PASSED
+5. Batch upload 50 customers -> Download works PASSED
+6. Broken CSV -> Error, no crash PASSED
+
+### Write it - Reflection
+**What surprised me?**
+When I set Contract to Two-year, the risk dropped from 89% to 61.5% (difference -0.275). The model is very sensitive to contract length. I did not expect one field to change risk that much.
+
+**What still handles badly for a real user?**
+If a real user enters Monthly charges = 0 or TotalCharges that does not match tenure (e.g., Tenure 10 but TotalCharges 5), the app still predicts. Also if user uploads a CSV with text in numeric column, error is technical "ValueError" not friendly. It should validate and say "Please check MonthlyCharges should be > 0".
