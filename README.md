@@ -9,13 +9,12 @@
 - First deployment succeeded, no ModuleNotFoundError
 
 ## Task 2.3 - Test it like a user would
-<img width="1896" height="873" alt="image" src="https://github.com/user-attachments/assets/93dccf7d-0aa1-4318-b91f-dc259680e103" />
-
-
-### Screenshots
 #### One Customer Test
 ![one customer](one_customer.png)
 Default inputs: Tenure 4, Month-to-month, Fiber optic -> Result 89% HIGH, Contact now
+
+<img width="1896" height="873" alt="image" src="https://github.com/user-attachments/assets/93dccf7d-0aa1-4318-b91f-dc259680e103" />
+
 
 #### Batch Scoring Test - Success
 ![batch success](batch_success.png)
