@@ -39,3 +39,35 @@ When I set Contract to Two-year, the risk dropped from 89% to 61.5% (difference 
 
 **What still handles badly for a real user?**
 If a real user enters Monthly charges = 0 or TotalCharges that does not match tenure (e.g., Tenure 10 but TotalCharges 5), the app still predicts. Also if user uploads a CSV with text in numeric column, error is technical "ValueError" not friendly. It should validate and say "Please check MonthlyCharges should be > 0".
+
+## Model card: Churn Risk Advisor v1.0
+
+**Intended use:** Rank telecom customers by churn risk for retention team prioritization. Decision support, not automated action.
+
+**Not for:** Credit decisions, pricing, or denying service.
+
+**Data:** IBM Telco Customer Churn, 7,043 customers (from model_meta.json v1.0)
+
+**Model:** XGBClassifier (sklearn 1.6.1) - churn_model.joblib
+30 features: SeniorCitizen, tenure, MonthlyCharges, TotalCharges, gender_Male, Partner_Yes, Dependents_Yes, PhoneService_Yes, MultipleLines_No phone service, MultipleLines_Yes, InternetService_Fiber optic, InternetService_No, OnlineSecurity_No internet service, OnlineSecurity_Yes, OnlineBackup_No internet service, OnlineBackup_Yes, DeviceProtection_No internet service, DeviceProtection_Yes, TechSupport_No internet service, TechSupport_Yes, StreamingTV_No internet service, StreamingTV_Yes, StreamingMovies_No internet service, StreamingMovies_Yes, Contract_One year, Contract_Two year, PaperlessBilling_Yes, PaymentMethod_Credit card (automatic), PaymentMethod_Electronic check, PaymentMethod_Mailed check
+
+**Performance:**
+- CV AUC: 0.8504 +/- 0.0125
+- Test AUC: 0.8478 (20% holdout, used once)
+
+**Threshold:** 0.30 (from model_meta.json). LOW <0.30, MEDIUM 0.30-0.65, HIGH >0.65. Chosen from cost: FN = customer loss PKR 6,000, FP = retention offer PKR 1,000.
+
+**Limitations:** US-only data from one period; no Pakistan data; correlation not causation; may drift with new plans; no service notes.
+
+**Fairness check:** Check recall by gender & SeniorCitizen. No large gap expected but monitor seniors.
+
+**Owner:** Fatima Akhtar, v1.0, 2026-05-13
+
+**Live App:** https://churn-risk-advisor-5p9ao2d7dkfhdeklwmovnj.streamlit.app
+- First deployment succeeded, no ModuleNotFoundError
+- Tested in Incognito: YES
+
+### How to run locally
+```bash
+pip install -r requirements.txt
+streamlit run app.py
