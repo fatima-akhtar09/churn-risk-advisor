@@ -72,3 +72,16 @@ If a real user enters Monthly charges = 0 or TotalCharges that does not match te
 pip install -r requirements.txt
 streamlit run app.py
 ```
+## Note for Sir - Week 4 Update in Week 3 Notebook
+
+Sir, this Week 3 notebook is updated for Week 4 Lab.
+
+Dataset used is same as Week 3: Telco Customer Churn (WA_Fn-UseC_Telco-Customer-Churn.csv)
+
+What I edited for Week 4 in this notebook:
+- Added model_meta.json with real values (0.8504 CV AUC, 0.8478 Test AUC, Threshold 0.30)
+- Saved model as churn_model.joblib
+- link: https://www.kaggle.com/code/fatimaakhtar123/week-3-model-optimization
+
+Student: Fatima Akhtar
+Updated: 2026-10-9 (v1.0)
