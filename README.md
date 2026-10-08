@@ -71,3 +71,4 @@ If a real user enters Monthly charges = 0 or TotalCharges that does not match te
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
+```
