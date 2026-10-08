@@ -21,7 +21,8 @@ Default inputs: Tenure 4, Month-to-month, Fiber optic -> Result 89% HIGH, Contac
 Uploaded sample file -> 31 of 50 customers above threshold, table shown
 
 #### Batch Scoring Test - Broken CSV
-![batch error](batch_error.png)
+<img width="1905" height="857" alt="image" src="https://github.com/user-attachments/assets/4d66b33f-bb34-4609-a8a5-c52146f3a79e" />
+
 Uploaded missing_col.csv -> Shows "Missing columns: ['tenure']" without crashing
 
 ### All Tests from Slide 9
