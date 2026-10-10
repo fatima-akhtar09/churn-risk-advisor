@@ -1,6 +1,6 @@
 # Churn Risk Advisor
 
-**Live App:** https://churn-risk-advisor-5p9ao2d7dkfhdeklwmovnj.streamlit.app
+**Live App:** https://churn-risk-advisor-5p9ao2d7dkfhdekwlmovnj.streamlit.app/
 
 ## Lab 4 - Task 3.3 Deployment
 - Main file: app.py
