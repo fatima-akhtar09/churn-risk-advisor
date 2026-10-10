@@ -77,6 +77,7 @@ streamlit run app.py
 Sir, this Week 3 notebook is updated for Week 4 Lab.
 
 Dataset used is same as Week 3: Telco Customer Churn (WA_Fn-UseC_Telco-Customer-Churn.csv)
+Note: Week 4 tasks are included in the Week 3 notebook (week-3-model-optimization) as they are a continuation of model optimization.
 
 - link: https://www.kaggle.com/code/fatimaakhtar123/week-3-model-optimization
 What I edited for Week 4 in this notebook:
