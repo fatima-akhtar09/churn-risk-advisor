@@ -63,7 +63,7 @@ If a real user enters Monthly charges = 0 or TotalCharges that does not match te
 
 **Owner:** Fatima Akhtar, v1.0, 2026-05-13
 
-**Live App:** https://churn-risk-advisor-5p9ao2d7dkfhdeklwmovnj.streamlit.app
+**Live App:** https://churn-risk-advisor-5p9ao2d7dkfhdekwlmovnj.streamlit.app/
 - First deployment succeeded, no ModuleNotFoundError
 - Tested in Incognito: YES
 
