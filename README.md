@@ -85,3 +85,27 @@ What I edited for Week 4 in this notebook:
  
 Student: Fatima Akhtar
 Updated: 2026-10-9 (v1.0)
+
+### 1. Why does `get_dummies(drop_first=True)` break predictions when scoring a single customer?
+
+`drop_first=True` removes one category as a reference category, and the columns generated can differ when encoding a single customer separately from the training data. If the feature columns are missing or misaligned, the model may receive incorrect inputs and produce unreliable predictions.
+
+### 2. What does the parity test compare, and why must it cover every training row rather than a few?
+
+The parity test compares predictions from the original training features with predictions from the same customers processed through the serving pipeline. Testing every training row checks consistency across all training examples, making it more likely to reveal encoding or preprocessing mismatches that a small sample could miss.
+
+### 3. Should the model be loaded with `st.cache_resource` or `st.cache_data`? Why?
+
+Use `st.cache_resource` because the trained XGBoost model is a reusable resource that should be loaded once and shared across Streamlit reruns. `st.cache_data` is intended for caching data results, such as processed datasets or data transformations.
+
+### 4. Why does the app derive `TotalCharges` instead of asking the user to type it?
+
+`TotalCharges` depends on a customer's tenure and monthly charges, so deriving it helps maintain consistency and avoids manual-entry errors. However, this is an approximation unless the formula reflects the actual billing data, because real total charges can include adjustments and other billing details.
+
+### 5. Why must `requirements.txt` pin the exact scikit-learn version used in training?
+
+Different scikit-learn versions may change preprocessing behavior, APIs, or model serialization compatibility. Pinning the training version (`scikit-learn==1.6.1` in this project) helps reproduce the environment and reduces the risk of loading or serving the model differently.
+
+### 6. The what-if shows a two-year contract lowers risk from 0.79 to 0.27. Would offering one make the customer stay? How could a company find out?
+
+No. The change from 0.79 to 0.27 is a model-generated prediction under a changed input, not proof that offering a two-year contract will cause the customer to stay. A company could run a randomized controlled experiment, offering the contract to a randomly selected eligible group and comparing its actual churn rate with a control group.
